@@ -3,7 +3,7 @@ import { Square, BedDouble, Bath, Car } from "lucide-react";
 import ImageGallerySlider from "@/components/ImageGallerySlider";
 
 const LUX_HOMES_URL = "https://luxhomesdesignbuild.ca/";
-const LUX_LOGO_SRC = "/images/lux-logo.png";
+const LUX_LOGO_SRC = "/images/lux-logo.jpg";
 
 export type RentalUnitData = {
   unitNumber: number;
@@ -117,7 +117,7 @@ const cardContent = (
             href={LUX_HOMES_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-dark)] text-[15px] md:text-base font-semibold hover:underline underline-offset-2"
+            className="text-[var(--color-dark)] text-[15px] md:text-base font-normal hover:underline underline-offset-2"
           >
             {unit.luxLine}
           </Link>
@@ -125,14 +125,15 @@ const cardContent = (
             href={LUX_HOMES_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-block"
+            className="shrink-0 inline-block bg-white rounded-sm p-1"
             aria-label="Lux Homes Design Build"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={LUX_LOGO_SRC}
               alt="Lux Homes Design Build"
-              className="h-8 w-auto object-contain block"
+              className="h-8 w-auto object-contain block bg-white"
+              style={{ backgroundColor: "white" }}
             />
           </Link>
         </div>

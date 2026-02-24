@@ -10,7 +10,7 @@ const UPPERPOINT_IMAGES = Array.from({ length: 26 }, (_, i) => {
 });
 
 const DEFAULT_DESCRIPTION = "Freehold unit in Riverbend area close to West 5.";
-const DEFAULT_LUX_LINE = "This modern, spacious unit built by Lux Homes.";
+const DEFAULT_LUX_LINE = "This modern, spacious unit is built by Lux Homes.";
 
 const DEFAULT_SPECS = {
   sqft: 1700,
