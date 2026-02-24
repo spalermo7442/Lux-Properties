@@ -9,19 +9,19 @@ export default function Footer() {
       <div className="container-main flex flex-col items-center">
         <Link href="/" className="mb-4">
           <Image
-            src="/images/logo-white.png"
-            alt="Lux Properties Inc"
+            src="/images/logo.png"
+            alt="Lux Properties"
             width={120}
             height={40}
             className="mx-auto h-8 w-auto"
           />
         </Link>
-        <p className="text-gray-500 text-xs font-light text-center tracking-wide mb-2">
-          Lux Properties a division of Lux Homes Design & Build
+        <p className="text-white/60 text-xs font-light text-center tracking-wide mb-2">
+          A division of Lux Homes Design & Build · London, Ontario
         </p>
-        <div className="w-full border-t border-gray-700 pt-4">
-          <p className="text-gray-500 text-xs font-light text-center tracking-wide">
-            © {currentYear} Lux Properties Inc. All rights reserved.
+        <div className="w-full border-t border-white/10 pt-4">
+          <p className="text-white/50 text-xs font-light text-center tracking-wide">
+            © {currentYear} Lux Properties. All rights reserved.
           </p>
         </div>
       </div>

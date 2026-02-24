@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NorthLondonPage() {
   return (
-    <main className="min-h-screen bg-white pt-16">
+    <main id="main-content" className="min-h-screen bg-white pt-16">
       <div className="container-main py-12 md:py-16 lg:py-20">
         <Link
           href="/"

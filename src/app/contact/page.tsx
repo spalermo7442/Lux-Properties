@@ -2,7 +2,7 @@ import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white pt-16">
+    <main id="main-content" className="min-h-screen bg-white pt-16">
       {/* Hero / Banner */}
       <section className="relative h-[280px] md:h-[340px] w-full bg-[var(--color-dark)] flex flex-col items-center justify-center">
         <div className="absolute inset-0 bg-black/35 flex flex-col items-center justify-center">
@@ -21,6 +21,11 @@ export default function ContactPage() {
           <p className="body-text text-gray-600 text-center mb-8">
             Send us a message and we&apos;ll respond as soon as we can.
           </p>
+          <noscript>
+            <p className="text-center text-gray-600 text-sm mb-4">
+              Please enable JavaScript in your browser to complete this form.
+            </p>
+          </noscript>
           <div className="bg-white border border-gray-200 rounded-sm p-8 md:p-10 shadow-sm">
             <ContactForm />
           </div>

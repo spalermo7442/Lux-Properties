@@ -15,26 +15,11 @@ const rentalsLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isRentalsDropdownOpen, setIsRentalsDropdownOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
-
-  const isSolidHeader =
-    isScrolled ||
-    pathname === "/contact" ||
-    pathname?.startsWith("/rentals");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -54,8 +39,7 @@ export default function Header() {
 
   const mobileMenuContent = isMobileMenuOpen && (
     <div
-      className="fixed inset-0 z-[9999] bg-white md:hidden"
-      style={{ backgroundColor: "#ffffff" }}
+      className="fixed inset-0 z-[9999] bg-[#0a0a0a] md:hidden"
       aria-modal="true"
       role="dialog"
       aria-label="Menu"
@@ -63,7 +47,7 @@ export default function Header() {
       <div className="flex justify-end pt-6 pr-6">
         <button
           onClick={() => setIsMobileMenuOpen(false)}
-          className="p-2 -m-2 text-gray-700 hover:text-black"
+          className="p-2 -m-2 text-white/80 hover:text-white"
           aria-label="Close menu"
         >
           <X size={24} />
@@ -73,12 +57,12 @@ export default function Header() {
         <Link
           href="/"
           onClick={() => setIsMobileMenuOpen(false)}
-          className="text-lg uppercase tracking-[0.2em] font-light text-gray-700 hover:text-black"
+          className="text-sm uppercase tracking-[0.2em] font-medium text-white/90 hover:text-white"
         >
           Home
         </Link>
         <div className="flex flex-col items-center gap-4">
-          <span className="text-lg uppercase tracking-[0.2em] font-light text-gray-400">
+          <span className="text-sm uppercase tracking-[0.2em] font-medium text-white/50">
             Rentals
           </span>
           {rentalsLinks.map((link) => (
@@ -86,7 +70,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg uppercase tracking-[0.2em] font-light text-gray-700 hover:text-black"
+              className="text-sm uppercase tracking-[0.2em] font-medium text-white/90 hover:text-white"
             >
               {link.label}
             </Link>
@@ -95,7 +79,7 @@ export default function Header() {
         <Link
           href="/contact"
           onClick={() => setIsMobileMenuOpen(false)}
-          className="text-lg uppercase tracking-[0.2em] font-light text-gray-700 hover:text-black"
+          className="text-sm uppercase tracking-[0.2em] font-medium text-white/90 hover:text-white"
         >
           Contact
         </Link>
@@ -104,39 +88,14 @@ export default function Header() {
   );
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isSolidHeader
-          ? "bg-white/95 backdrop-blur-sm shadow-sm py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="container-main flex items-center justify-between">
-        <Link
-          href="/"
-          className={`relative z-10 transition-opacity duration-300 ${isSolidHeader ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-        >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-white/10">
+      <div className="container-main flex items-center justify-between h-16">
+        <Link href="/" className="relative z-10 flex items-center">
           <Image
-            src="/images/logo-black.png"
-            alt="Lux Properties Inc"
-            width={140}
-            height={45}
-            className="h-8 md:h-9 w-auto"
-            priority
-          />
-        </Link>
-
-        {/* Transparent-state logo (visible when not solid) */}
-        <Link
-          href="/"
-          className={`absolute left-0 right-0 flex justify-center transition-opacity duration-300 ${isSolidHeader ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-          aria-hidden={isSolidHeader}
-        >
-          <Image
-            src="/images/logo-white.png"
+            src="/images/logo.png"
             alt="Lux Properties"
-            width={140}
-            height={45}
+            width={160}
+            height={48}
             className="h-8 md:h-9 w-auto"
             priority
           />
@@ -146,11 +105,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           <Link
             href="/"
-            className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors ${
-              isSolidHeader
-                ? "text-black hover:text-gray-600"
-                : "text-white hover:text-gray-200"
-            }`}
+            className="text-[11px] uppercase tracking-[0.2em] font-medium text-white/80 hover:text-white transition-colors"
           >
             Home
           </Link>
@@ -161,11 +116,7 @@ export default function Header() {
           >
             <button
               type="button"
-              className={`inline-flex items-center gap-1 text-xs uppercase tracking-[0.15em] font-medium transition-colors ${
-                isSolidHeader
-                  ? "text-black hover:text-gray-600"
-                  : "text-white hover:text-gray-200"
-              }`}
+              className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] font-medium text-white/80 hover:text-white transition-colors"
               aria-expanded={isRentalsDropdownOpen}
               aria-haspopup="true"
             >
@@ -174,12 +125,12 @@ export default function Header() {
             </button>
             {isRentalsDropdownOpen && (
               <div className="absolute top-full left-0 pt-1">
-                <div className="bg-white rounded shadow-lg border border-gray-200 py-1 min-w-[180px]">
+                <div className="bg-[#0a0a0a] border border-white/10 py-1 min-w-[200px]">
                   {rentalsLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-2 text-xs uppercase tracking-[0.15em] font-medium text-gray-800 hover:bg-gray-100"
+                      className="block px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium text-white/90 hover:bg-white/5 hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -190,20 +141,15 @@ export default function Header() {
           </div>
           <Link
             href="/contact"
-            className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors ${
-              isSolidHeader
-                ? "text-black hover:text-gray-600"
-                : "text-white hover:text-gray-200"
-            }`}
+            className="text-[11px] uppercase tracking-[0.2em] font-medium text-white/80 hover:text-white transition-colors"
           >
             Contact
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`md:hidden relative z-10 p-1 ${isSolidHeader ? "text-black" : "text-white"}`}
+          className="md:hidden relative z-10 p-1 text-white/90 hover:text-white"
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}

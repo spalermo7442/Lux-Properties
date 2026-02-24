@@ -10,13 +10,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Lux Properties Inc | Long Term Rentals",
+  title: "Lux Properties | Lux Living Within Reach",
   description:
-    "Lux Properties Inc — offering long term rentals. A division of Lux Homes Design & Build.",
-  keywords: ["rentals", "long term rentals", "Lux Properties", "London Ontario"],
+    "Professionally managed rentals in London, Ontario. Thoughtfully designed homes for modern living — a division of Lux Homes Design & Build.",
+  keywords: ["rentals", "London Ontario", "Lux Properties", "townhomes", "Stratus", "Lux Homes"],
   openGraph: {
-    title: "Lux Properties Inc",
-    description: "Offering long term rentals. A division of Lux Homes Design & Build.",
+    title: "Lux Properties | Lux Living Within Reach",
+    description: "Thoughtfully designed homes for modern living. London, Ontario.",
     type: "website",
     locale: "en_CA",
   },
