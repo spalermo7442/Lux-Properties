@@ -95,7 +95,7 @@ export default function UpperpointGatePage() {
             sizes="100vw"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
+            className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"
             aria-hidden
           />
         </div>

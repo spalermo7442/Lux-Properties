@@ -10,6 +10,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 const rentalsLinks = [
   { href: "/rentals/upperpoint-gate", label: "Upperpoint Gate" },
   { href: "/rentals/north-london", label: "North London" },
+  { href: "https://stratustowns.ca/", label: "Stratus", external: true },
 ];
 
 export default function Header() {
@@ -65,16 +66,29 @@ export default function Header() {
           <span className="text-sm uppercase tracking-[0.2em] font-medium text-white/50">
             Rentals
           </span>
-          {rentalsLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm uppercase tracking-[0.2em] font-medium text-white/90 hover:text-white"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {rentalsLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm uppercase tracking-[0.2em] font-medium text-white/90 hover:text-white"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm uppercase tracking-[0.2em] font-medium text-white/90 hover:text-white"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
         <Link
           href="/contact"
@@ -94,9 +108,9 @@ export default function Header() {
           <Image
             src="/images/logo.png"
             alt="Lux Properties"
-            width={160}
-            height={48}
-            className="h-8 md:h-9 w-auto"
+            width={200}
+            height={60}
+            className="h-10 md:h-12 w-auto"
             priority
           />
         </Link>
@@ -126,15 +140,27 @@ export default function Header() {
             {isRentalsDropdownOpen && (
               <div className="absolute top-full left-0 pt-1">
                 <div className="bg-[#0a0a0a] border border-white/10 py-1 min-w-[200px]">
-                  {rentalsLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium text-white/90 hover:bg-white/5 hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {rentalsLinks.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium text-white/90 hover:bg-white/5 hover:text-white"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium text-white/90 hover:bg-white/5 hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             )}
