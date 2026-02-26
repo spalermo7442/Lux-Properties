@@ -13,6 +13,7 @@ import {
   Armchair,
 } from "lucide-react";
 import ImageGallerySlider from "@/components/ImageGallerySlider";
+import FloorPlanImage from "@/components/FloorPlanImage";
 
 export type NorthLondonPropertyData = {
   address: string;
@@ -154,19 +155,12 @@ export default function NorthLondonProperty({ property, variant = "white" }: Nor
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {property.floorPlans.map((plan) => (
-                <div key={plan.label} className="flex flex-col">
-                  <div className="relative aspect-[3/4] min-h-[280px] bg-[var(--color-gray-bg)] overflow-hidden flex items-center justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={plan.src}
-                      alt={plan.alt}
-                      className="w-full h-full object-contain p-4 opacity-90 mix-blend-multiply"
-                    />
-                  </div>
-                  <p className="mt-3 text-[11px] uppercase tracking-[0.15em] text-[var(--color-dark)]">
-                    {plan.label}
-                  </p>
-                </div>
+                <FloorPlanImage
+                  key={plan.label}
+                  src={plan.src}
+                  alt={plan.alt}
+                  label={plan.label}
+                />
               ))}
             </div>
           </div>
