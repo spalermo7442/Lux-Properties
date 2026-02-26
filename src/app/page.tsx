@@ -8,14 +8,14 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-header.png"
+            src="/images/hero-header.jpg"
             alt=""
             fill
             className="object-cover object-top"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/80" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-20 w-full max-w-4xl mx-auto">
           <Image

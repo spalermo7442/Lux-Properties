@@ -87,7 +87,7 @@ export default function UpperpointGatePage() {
       <section className="relative w-full overflow-hidden">
         <div className="relative w-full aspect-[2/1] md:aspect-[5/2]">
           <Image
-            src="/images/hero-header.png"
+            src="/images/hero-header.jpg"
             alt="1965 Upperpoint Gate"
             fill
             className="object-cover object-top w-full"
