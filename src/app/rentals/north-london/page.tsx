@@ -20,6 +20,13 @@ const BUROAK_FEATURES = [
 
 const GALLERY_2603 = [
   { src: "/images/north-london/2603-exterior.png", alt: "2603 Buroak Drive — exterior" },
+  ...Array.from({ length: 37 }, (_, i) => {
+    const n = String(i + 1).padStart(2, "0");
+    return {
+      src: `/images/north-london/2603-gallery-${n}.png`,
+      alt: `2603 Buroak Drive — ${i + 1}`,
+    };
+  }),
 ];
 
 const FLOOR_PLANS_2603 = [
@@ -31,18 +38,6 @@ const FLOOR_PLANS_2603 = [
 const PROPERTIES: NorthLondonPropertyData[] = [
   {
     address: "2603 Buroak Drive",
-    status: "NOT AVAILABLE",
-    description: BUROAK_DESCRIPTION,
-    sqft: 2630,
-    beds: 4,
-    baths: 3.5,
-    garage: "Two car garage",
-    features: BUROAK_FEATURES,
-    gallery: GALLERY_2603,
-    floorPlans: FLOOR_PLANS_2603,
-  },
-  {
-    address: "2611 Buroak Drive",
     status: "NOT AVAILABLE",
     description: BUROAK_DESCRIPTION,
     sqft: 2630,
