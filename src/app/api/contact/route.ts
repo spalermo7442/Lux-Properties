@@ -2,9 +2,9 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 const TO_EMAIL =
-  process.env.RESEND_TO_EMAIL ?? "contact@luxpropertiesinc.ca";
+  process.env.RESEND_TO_EMAIL ?? "info@luxpropertiesinc.ca";
 const FROM_EMAIL =
-  process.env.RESEND_FROM ?? "Lux Properties <contact@luxpropertiesinc.ca>";
+  process.env.RESEND_FROM ?? "Lux Properties <info@luxpropertiesinc.ca>";
 
 export async function POST(request: Request) {
   try {
