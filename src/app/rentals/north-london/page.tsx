@@ -19,7 +19,7 @@ const BUROAK_FEATURES = [
 ];
 
 const GALLERY_2603 = [
-  { src: "/images/north-london/2603-exterior.png", alt: "2603 Buroak Drive — exterior" },
+  { src: "/images/north-london/2603-exterior.jpg", alt: "2603 Buroak Drive — exterior" },
   ...Array.from({ length: 37 }, (_, i) => {
     const n = String(i + 1).padStart(2, "0");
     return {
@@ -56,10 +56,10 @@ export default function NorthLondonPage() {
       <section className="relative w-full overflow-hidden">
         <div className="relative w-full aspect-[2/1] md:aspect-[5/2]">
           <Image
-            src="/images/hero-header.jpg"
+            src="/images/north-london/hero-header.jpg"
             alt="North London Rentals"
             fill
-            className="object-cover object-top w-full"
+            className="object-cover object-center w-full"
             priority
             sizes="100vw"
           />
