@@ -46,10 +46,11 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "Failed to send message. Please try again." },
-        { status: 500 }
-      );
+      const message =
+        typeof error?.message === "string"
+          ? error.message
+          : "Failed to send message. Please try again.";
+      return NextResponse.json({ error: message }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
