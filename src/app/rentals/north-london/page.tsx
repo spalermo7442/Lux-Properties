@@ -56,12 +56,13 @@ export default function NorthLondonPage() {
       <section className="relative w-full overflow-hidden">
         <div className="relative w-full aspect-[2/1] md:aspect-[5/2]">
           <Image
-            src="/images/north-london/hero-header.jpg"
+            src="/images/north-london/hero-header.png"
             alt="North London Rentals"
             fill
             className="object-cover object-center w-full"
             priority
             sizes="100vw"
+            unoptimized
           />
           <div
             className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"
