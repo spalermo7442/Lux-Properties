@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { verifyRecaptchaToken } from "@/lib/verifyRecaptcha";
 
 const TO_EMAIL =
   process.env.RESEND_TO_EMAIL ?? "info@luxpropertiesinc.ca";
@@ -19,6 +20,34 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
     const formData = await request.formData();
+
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secretKey) {
+      console.error("RECAPTCHA_SECRET_KEY is not set");
+      return NextResponse.json(
+        { error: "Verification is not configured." },
+        { status: 500 }
+      );
+    }
+
+    const recaptchaToken = String(
+      formData.get("g-recaptcha-response") ?? ""
+    ).trim();
+    if (!recaptchaToken) {
+      return NextResponse.json(
+        { error: "Please complete the reCAPTCHA verification." },
+        { status: 400 }
+      );
+    }
+
+    const recaptchaOk = await verifyRecaptchaToken(recaptchaToken);
+    if (!recaptchaOk) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Please try again." },
+        { status: 400 }
+      );
+    }
+
     const name = String(formData.get("name") ?? "").trim();
     const email = String(formData.get("email") ?? "").trim();
     const message = String(
